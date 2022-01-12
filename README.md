@@ -1,10 +1,10 @@
 # Energy Profile
 
-A complete energy profile of Argentina, its provinces and cities. You can access information on the supply and consumption of energy in GW, types of power plants, consumption per capita, etc. Built with [streamlit] (https://streamlit.io/), [mapbox GL](https://github.com/mapbox/mapbox-gl-js/), maintained by [xxxxxxx](xxxxxxx). Try it out at [http://xxxxxxxx](http://xxxxxx), or download the app on [Google Play](https://xxxxxxx) or [App store](https://xxxxxx).
+A complete energy profile of Argentina, its provinces and cities. You can access information on the supply and consumption of energy in GW, types of power plants, consumption per capita, etc. Built with [streamlit](https://streamlit.io/), [mapbox GL](https://github.com/mapbox/mapbox-gl-js/), maintained by [xxxxxxx](xxxxxxx). Try it out at [http://xxxxxxxx](http://xxxxxx), or download the app on [Google Play](https://xxxxxxx) or [App store](https://xxxxxx).
 
 ## Prospective
 
-You can access information the Greenhouse Gas (in terms of CO<sub>2</sub> equivalent) footprint of electricity consumption 
+You can access information of the Greenhouse Gas (in terms of CO<sub>2</sub> equivalent) footprint of electricity consumption 
 
 ## Slack Chanel
 
