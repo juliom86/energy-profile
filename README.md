@@ -17,7 +17,7 @@ We would love your feedback on how to improve the contribution experience, pleas
 ## Frequently asked questions
 
 **Where does the data come from?**
-The data comes from many different sources. You can check them out [here](https://github.com/mandyespinosam/data-source-energy-profile)
+The data comes from many different sources. You can check them out [here](https://drive.google.com/drive/folders/1Lkq4R-ekiDh9lXnfsI0lBNMnz1xaWDro?usp=sharing)
 
 **How can I get access to historical data or the live API?**
 All this and more can be found **[here](xxxxxxx/)**.
