@@ -1,1 +1,5 @@
 streamlit
+plotly
+pandas
+datetime
+time
