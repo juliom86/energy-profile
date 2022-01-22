@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import time
 import requests
+import time
 # from application.functions import convert_df
 
 BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
