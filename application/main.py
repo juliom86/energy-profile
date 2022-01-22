@@ -3,7 +3,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import time
+import requests
 # from application.functions import convert_df
+
+BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+
 
 def run():
     api_request_progress_bar = st.progress(0)
@@ -12,13 +16,21 @@ def run():
     col3, col4 = st.columns([3, 1])
 
     if st.sidebar.button('Solicitar información'):
+        params = {
+            "start_year": "2010",
+            "end_year": "2020",
+            "kpi": "all"
+        }
+        response = requests.get(BASE_URL + "/kpi", params=params)
+        data = response.json()
+
         for percent_complete in range(100):
             time.sleep(0.01)
             api_request_progress_bar.progress(percent_complete + 1)
 
         api_request_progress_bar.empty()
 
-        df_gen_vs_con = pd.read_csv('datasets/gen_vs_con.csv')
+        df_gen_vs_con = pd.read_json(data)
 
         col1.subheader("Generación Historica nivel pais en Argentina")
 
