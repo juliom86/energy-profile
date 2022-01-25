@@ -14,6 +14,8 @@ def run():
     st.title("Producción vs. consumo de energía")
     col1, col2 = st.columns([3, 1])
     col3, col4 = st.columns([3, 1])
+    col5, col6 = st.columns([3, 1])
+    col7, col8 = st.columns([3, 1])
 
     if st.sidebar.button('Solicitar información'):
         params = {
@@ -61,5 +63,43 @@ def run():
 
         col3.plotly_chart(consumption_fig)
 
+        col3.subheader("Consumo per cápita historica Argentina")
+        consumption_per_capita_fig = px.line(
+            df_gen_vs_con,
+            x='Fecha',
+            y='Consumo per capita kWh',
+            title='Consumo Percapita Historica Argentina')
+
+
+        col5.plotly_chart(generation_fig)
+
+
+
+        # Emisions
+        df_emis_arg = pd.read_csv('./datasets/Emisiones_Argentina.csv',sep = ';')
+        df_emis_arg_fin = df_emis_arg[['FECHA', 'de combustible líquido', 'de combustible gaseoso', 'de combustibles sólidos']]
+        df_emis_arg_fin.dropna(inplace = True)
+        year = df_emis_arg_fin['FECHA']
+        liquid_fuel = df_emis_arg_fin['de combustible líquido']
+        gas_fuel    = df_emis_arg_fin['de combustible gaseoso']
+        solid_fuel  = df_emis_arg_fin['de combustibles sólidos']
+
+        col7.subheader(
+            "Emisones de CO2 por consumo de combustible en la generación de energía"
+        )
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatter(x=year, y=liquid_fuel, mode='lines', name='líquido'))
+        fig.add_trace(
+            go.Scatter(x=year, y=gas_fuel, mode='lines', name='gaseoso'))
+        fig.add_trace(
+            go.Scatter(x=year, y=solid_fuel, mode='lines', name='solido'))
+
+        fig.update_layout(xaxis_title='Año',
+                        yaxis_title='Emisiones por consumo de combustible')
+
+        col7.plotly_chart(fig)
+
+
     else:
-        st.write('')
+        st.write('Introducción al Proyecto')
