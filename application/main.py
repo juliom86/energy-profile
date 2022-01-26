@@ -4,9 +4,15 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import time
+import os
 # from application.functions import convert_df
 
-BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+env = os.getenv('FLASK_ENV')
+
+if (env == 'dev'):
+    BASE_URL = "http://localhost:8000"
+else:
+    BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
 
 
 def run():
@@ -73,16 +79,16 @@ def run():
 
         col5.plotly_chart(generation_fig)
 
-
-
         # Emisions
-        df_emis_arg = pd.read_csv('./datasets/Emisiones_Argentina.csv',sep = ';')
-        df_emis_arg_fin = df_emis_arg[['FECHA', 'de combustible líquido', 'de combustible gaseoso', 'de combustibles sólidos']]
-        df_emis_arg_fin.dropna(inplace = True)
-        year = df_emis_arg_fin['FECHA']
-        liquid_fuel = df_emis_arg_fin['de combustible líquido']
-        gas_fuel    = df_emis_arg_fin['de combustible gaseoso']
-        solid_fuel  = df_emis_arg_fin['de combustibles sólidos']
+        params = {"start_year": "2010", "end_year": "2020", "fuels": "all"}
+        response = requests.get(BASE_URL + "/emisions", params=params)
+        data = response.json()
+
+        df_emissions = pd.read_json(data)
+        year = df_emissions['FECHA']
+        liquid_fuel = df_emissions['de combustible líquido']
+        gas_fuel    = df_emissions['de combustible gaseoso']
+        solid_fuel  = df_emissions['de combustibles sólidos']
 
         col7.subheader(
             "Emisones de CO2 por consumo de combustible en la generación de energía"
