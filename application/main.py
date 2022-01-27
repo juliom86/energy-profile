@@ -5,6 +5,9 @@ import plotly.graph_objects as go
 import requests
 import time
 import os
+import geopandas as gpd
+import folium
+from streamlit_folium import folium_static
 # from application.functions import convert_df
 
 env = os.getenv('FLASK_ENV')
@@ -22,6 +25,7 @@ def run():
     col3, col4 = st.columns([3, 1])
     col5, col6 = st.columns([3, 1])
     col7, col8 = st.columns([3, 1])
+    col9, col10 = st.columns([3, 1])
 
     if st.sidebar.button('Solicitar información'):
         params = {
@@ -106,6 +110,50 @@ def run():
 
         col7.plotly_chart(fig)
 
+
+        #Mapa
+        m = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
+        provincia_argjson = gpd.read_file('./datasets/provincia.json')
+        provincia_argjson = provincia_argjson[['nam', 'geometry']]
+        df_cant = pd.read_excel(
+            './datasets/cant_centr_prov_pobl_consumo_modificado.xlsx')
+        df_final = provincia_argjson.merge(df_cant,
+                                           left_on="nam",
+                                           right_on="Provincia",
+                                           how="outer")
+        style_function = lambda x: {'fillColor': '#ffffff',
+                            'color':'#000000',
+                            'fillOpacity': 0.1,
+                            'weight': 0.1}
+        highlight_function = lambda x: {'fillColor': '#000000',
+                                'color':'#000000',
+                                'fillOpacity': 0.50,
+                                'weight': 0.1}
+        datos = folium.features.GeoJson(
+                    data=df_final,
+
+                    style_function=style_function,
+                    control=False,
+                    highlight_function=highlight_function,
+                    tooltip=folium.features.GeoJsonTooltip(
+                        fields=['Provincia',
+                                'Nro_de_centrales',
+                                'Población_2020',
+                                'Consumo_total_por_población_provincia_GW','TERMICA', 'EOLICA', 'HIDRAULICA', 'NUCLEAR', 'RENOVABLES,'
+                               ],
+                        aliases=['Provincia',
+                                'Nro de centrales',
+                                'Población 2020',
+                                 'Consumo total por población provincia GW','TERMICA', 'EOLICA', 'HIDRAULICA', 'NUCLEAR', 'RENOVABLES'
+                                ],
+
+                        style=("background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;")))
+
+
+
+        m.add_child(datos)
+
+        folium_static(m)
 
     else:
         st.write('Introducción al Proyecto')
