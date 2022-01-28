@@ -1,6 +1,7 @@
 import streamlit as st
 
-TABS = ['one', 'two', 'three', 'four']
+TABS = ['País', 'Región', 'Mapa', 'API']
+
 
 def tabs():
     st.markdown(
@@ -11,11 +12,11 @@ def tabs():
     if "tab" in query_params:
         active_tab = query_params["tab"][0]
     else:
-        active_tab = "one"
+        active_tab = "País"
 
     if active_tab not in TABS:
-        st.experimental_set_query_params(tab="one")
-        active_tab = "one"
+        st.experimental_set_query_params(tab="Introducción")
+        active_tab = "Introducción"
 
     li_items = "".join(f"""
         <li class="nav-item">
@@ -30,14 +31,3 @@ def tabs():
 
     st.markdown(tabs_html, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
-
-    if active_tab == "one":
-        st.write("Tab one")
-    elif active_tab == "two":
-        st.write("Tab two")
-    elif active_tab == "three":
-        st.write("Tab three")
-    elif active_tab == "four":
-        st.write("Tab four")
-    else:
-        st.error("Information needed.")
