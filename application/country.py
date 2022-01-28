@@ -49,7 +49,7 @@ def run():
         df_gen_vs_con,
         x='Fecha',
         y='Generación GWh',
-        title='Generacióm Energética Historica Argentina',
+        title='Generación Energética Historica Argentina',
         width=1100,
         height=600)
     consumption_fig = px.line(
