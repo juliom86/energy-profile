@@ -3,3 +3,5 @@ plotly
 pandas
 datetime
 streamlit_folium
+geopandas
+folium
