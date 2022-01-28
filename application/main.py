@@ -17,7 +17,7 @@ def run():
     if (env == 'dev'):
         BASE_URL = "http://localhost:8000"
     else:
-        BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+        BASE_URL = "https://api-v5-s6r4cnmwdq-ew.a.run.app"
 
     routes.tabs()
 
