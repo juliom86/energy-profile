@@ -49,12 +49,14 @@ def run():
         df_gen_vs_con,
         x='Fecha',
         y='Generación GWh',
+        title='Generacióm Energética Historica Argentina',
         width=1100,
         height=600)
     consumption_fig = px.line(
         df_gen_vs_con,
         x='Fecha',
         y='Consumo GWh',
+        title='Consumo Energético Historico Argentina',
         width=1100,
         height=600)
 
@@ -68,9 +70,12 @@ def run():
     with col2:
         with st.expander("Mayor información y descarga de datos."):
             st.write("""
-                The chart above shows some numbers I picked for you.
-                I rolled actual dice for these, so they're *guaranteed* to
-                be random.
+                La generación de energía eléctrica engloba al conjunto de
+                procesos distintos a través de los cuales puede producirse
+                electricidad, o lo que es lo mismo, transformar otras formas
+                de energía disponibles en la naturaleza (energía química,
+                cinética, térmica, lumínica, nuclear, etc.) en energía
+                eléctrica aprovechable.
             """)
 
     column_builder.run(col3, consumption_fig,
@@ -83,16 +88,15 @@ def run():
     with col4:
         with st.expander("Mayor información y descarga de datos."):
             st.write("""
-                The chart above shows some numbers I picked for you.
-                I rolled actual dice for these, so they're *guaranteed* to
-                be random.
+                El consumo energético es el gasto total de la energía,
+                y normalmente incluye más de una fuente energética.
             """)
 
     consumption_per_capita_fig = px.line(
         df_gen_vs_con,
         x='Fecha',
         y='Consumo per capita kWh',
-        title='Consumo Percapita Historica Argentina',
+        title='Consumo Percapita Historico Argentina',
         width=1100,
         height=600)
 
@@ -106,9 +110,7 @@ def run():
     with col6:
         with st.expander("Mayor información y descarga de datos."):
             st.write("""
-                The chart above shows some numbers I picked for you.
-                I rolled actual dice for these, so they're *guaranteed* to
-                be random.
+                Consumo de enegía primaria por habitante .
             """)
 
     # Emissions
@@ -125,6 +127,7 @@ def run():
         yaxis_title='Emisiones por consumo de combustible',
         width=1100,
         height=600,
+        title='Emisiones por consumo de combustible',
         legend=dict(
             yanchor="top",
             y=0.99,
@@ -142,7 +145,7 @@ def run():
     with col8:
         with st.expander("Mayor información y descarga de datos."):
             st.write("""
-                The chart above shows some numbers I picked for you.
-                I rolled actual dice for these, so they're *guaranteed* to
-                be random.
+                Hace referencia a las emisiones generadas como resultado
+                de la generación energética, usando combustibles líquidos,
+                sólidos o gaseosos.
             """)

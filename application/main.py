@@ -22,4 +22,11 @@ def run():
         country.run()
 
     else:
-        st.write('Introducción escrita por Mandy')
+        st.write(
+            '''Un perfil energético completo de Argentina, sus provincias
+            y regiones.
+            Se puede acceder a información sobre el suministro y consumo de
+            energía en GW.
+            Centrales eléctricas de cada provincia.
+            Generación por central y tipo de central.'''
+        )
