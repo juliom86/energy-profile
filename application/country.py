@@ -4,7 +4,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import os
-from application import column_builder, routes, country
 
 def run():
     env = os.getenv('FLASK_ENV')
@@ -60,37 +59,25 @@ def run():
         width=1100,
         height=600)
 
-    column_builder.run(col1, generation_fig,
-                {
-                    'title': 'Producción vs. consumo de energía',
-                    'subheader': 'Generación Historica nivel pais en Argentina',
-                    'description': 'Gráfico de la producción vs. consumo de energía en el país de Argentina.'
-                })
+    col1.plotly_chart(generation_fig)
 
     with col2:
+        st.write("""
+            #### Fuente e información
+            La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
+        """)
         with st.expander("Mayor información y descarga de datos."):
-            st.write("""
-                La generación de energía eléctrica engloba al conjunto de
-                procesos distintos a través de los cuales puede producirse
-                electricidad, o lo que es lo mismo, transformar otras formas
-                de energía disponibles en la naturaleza (energía química,
-                cinética, térmica, lumínica, nuclear, etc.) en energía
-                eléctrica aprovechable.
-            """)
+            st.write("API and download button should go here.")
 
-    column_builder.run(col3, consumption_fig,
-                {
-                    'title': 'Consumo histórica nivel pais en Argentina',
-                    'subheader': '....',
-                    'description': '...'
-                })
+    col3.plotly_chart(consumption_fig)
 
     with col4:
+        st.write("""
+            #### Fuente e información
+            El consumo energético es el gasto total de la energía, y normalmente incluye más de una fuente energética.
+        """)
         with st.expander("Mayor información y descarga de datos."):
-            st.write("""
-                El consumo energético es el gasto total de la energía,
-                y normalmente incluye más de una fuente energética.
-            """)
+            st.write("API and download button should go here.")
 
     consumption_per_capita_fig = px.line(
         df_gen_vs_con,
@@ -100,18 +87,16 @@ def run():
         width=1100,
         height=600)
 
-    column_builder.run(col5, consumption_per_capita_fig,
-                {
-                    'title': 'Consumo per cápita historica Argentina',
-                    'subheader': '....',
-                    'description': '...'
-                })
+    col5.plotly_chart(consumption_per_capita_fig)
 
     with col6:
-        with st.expander("Mayor información y descarga de datos."):
-            st.write("""
-                Consumo de enegía primaria por habitante .
+        st.write("""
+            #### Fuente e información
+            Consumo de enegía primaria por habitante.
             """)
+        with st.expander("Mayor información y descarga de datos."):
+            st.write("API and download button should go here.")
+
 
     # Emissions
     emissions_fig = go.Figure()
@@ -136,16 +121,12 @@ def run():
         )
     )
 
-    column_builder.run(col7, emissions_fig, {
-        'title': 'Emisiones',
-        'subheader': '....',
-        'description': '...'
-    })
+    col7.plotly_chart(emissions_fig)
 
     with col8:
+        st.write("""
+            #### Fuente e información
+            Hace referencia a las emisiones generadas como resultado de la generación energética, usando combustibles líquidos, sólidos o gaseosos.
+        """)
         with st.expander("Mayor información y descarga de datos."):
-            st.write("""
-                Hace referencia a las emisiones generadas como resultado
-                de la generación energética, usando combustibles líquidos,
-                sólidos o gaseosos.
-            """)
+            st.write("API and download button should go here.")

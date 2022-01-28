@@ -15,6 +15,16 @@ def run():
         margin-top: 0px !important;
         padding-top: 0px !important;
     }}
+    .js-plotly-plot.plotly.modebar {{
+        right: 120px !important;
+    }}
+    .modebar.modebar--hover.ease-bg {{
+        right: 120px !important;
+    }}
+    .css-6awftf.e19lei0e0 {{
+        position: absolute !important;
+        right: 85px !important;
+    }}
     </style>
     """
 
