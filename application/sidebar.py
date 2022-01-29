@@ -6,6 +6,12 @@ def run():
         # Energy Profile
         """)
 
+
+    st.sidebar.image(
+        "https://fondosmil.com/fondo/12790.png",
+        width=200
+    )
+
     st.sidebar.markdown(f"""
         Puedes encontrar información sobre las variables disponibles [aquí](/glosary).
         """)
@@ -14,11 +20,4 @@ def run():
         ### Consulta de Datos:
         """)
 
-    st.sidebar.multiselect('Seleccione el lugar de búsqueda', [
-        'Argentina', 'Misiones', 'Chubut', 'Santa Cruz', 'Neuquen', 'Buenos Aires'
-    ], ['Argentina'])
-
-    st.sidebar.date_input("Seleccione la fecha de inicio",
-                        datetime.date(2022, 1, 1))
-
-    st.sidebar.date_input("Seleccione la fecha de fin", datetime.date(2022, 1, 1))
+    st.sidebar.multiselect('Seleccione el lugar de búsqueda', ['Argentina'])
