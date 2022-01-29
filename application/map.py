@@ -9,9 +9,9 @@ def run():
     env = os.getenv('FLASK_ENV')
 
     if (env == 'dev'):
-        BASE_URL = "http://localhost:8000"
+        BASE_URL = "http://localhost:8001"
     else:
-        BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+        BASE_URL = "https://api-v6-s6r4cnmwdq-ew.a.run.app"
 
     folium_map = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
 

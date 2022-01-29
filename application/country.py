@@ -9,9 +9,9 @@ def run():
     env = os.getenv('FLASK_ENV')
 
     if (env == 'dev'):
-        BASE_URL = "http://localhost:8000"
+        BASE_URL = "http://localhost:8001"
     else:
-        BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+        BASE_URL = "https://api-v6-s6r4cnmwdq-ew.a.run.app"
 
     # Country Profile
     col1, col2 = st.columns([3, 1])
