@@ -17,7 +17,9 @@ def run():
 
     response = requests.get(f"{BASE_URL}/map")
     data = response.json()
-    region_json_df = gpd.read_file(data)
+    region_json_df = gpd.read_file(
+        'https://dnsg.ign.gob.ar/apps/api/v1/capas-sig/Geodesia+y+demarcaci%C3%B3n/L%C3%ADmites/provincia/json'
+    )
 
     region_json_df = region_json_df[['nam', 'geometry']]
 
