@@ -21,8 +21,8 @@ def run():
 
     # Consumption and Generation API call
     params = {
-        "start_year": "2010",
-        "end_year": "2020",
+        "start_year": "1980",
+        "end_year": "2015",
         "kpi": "all"
     }
     response = requests.get(BASE_URL + "/kpi", params=params)
@@ -32,7 +32,7 @@ def run():
 
     # Emissions API call
 
-    params = {"start_year": "2010", "end_year": "2020", "fuels": "all"}
+    params = {"start_year": "1980", "end_year": "2015", "fuel": "all"}
     response = requests.get(BASE_URL + "/emisions", params=params)
     data = response.json()
 
