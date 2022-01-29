@@ -51,6 +51,10 @@ def run():
         title='Generación Energética Historica Argentina',
         width=1100,
         height=600)
+    generation_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
+        dict(count=1, label="1y", step="year", stepmode="backward"),
+        dict(step="all")])),rangeslider=dict(visible=True)))
+
     consumption_fig = px.line(
         df_gen_vs_con,
         x='Fecha',
@@ -58,12 +62,15 @@ def run():
         title='Consumo Energético Historico Argentina',
         width=1100,
         height=600)
+    consumption_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
+        dict(count=1, label="1y", step="year", stepmode="backward"),
+        dict(step="all")])),rangeslider=dict(visible=True)))
 
     col1.plotly_chart(generation_fig)
 
     with col2:
         st.write("""
-            #### Fuente e información
+            #### Generación:
             La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
         """)
         with st.expander("Mayor información y descarga de datos."):
@@ -73,7 +80,7 @@ def run():
 
     with col4:
         st.write("""
-            #### Fuente e información
+            #### Consumo:
             El consumo energético es el gasto total de la energía, y normalmente incluye más de una fuente energética.
         """)
         with st.expander("Mayor información y descarga de datos."):
@@ -86,12 +93,16 @@ def run():
         title='Consumo Percapita Historico Argentina',
         width=1100,
         height=600)
+    consumption_per_capita_fig.update_layout(
+        xaxis=dict(rangeselector=dict(buttons=list([
+            dict(count=1, label="1y", step="year", stepmode="backward"),
+            dict(step="all")])),rangeslider=dict(visible=True)))
 
     col5.plotly_chart(consumption_per_capita_fig)
 
     with col6:
         st.write("""
-            #### Fuente e información
+            #### Consumo per capita
             Consumo de enegía primaria por habitante.
             """)
         with st.expander("Mayor información y descarga de datos."):
@@ -120,12 +131,15 @@ def run():
             x=0.89
         )
     )
+    emissions_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
+        dict(count=1, label="1y", step="year", stepmode="backward"),
+        dict(step="all")])),rangeslider=dict(visible=True)))
 
     col7.plotly_chart(emissions_fig)
 
     with col8:
         st.write("""
-            #### Fuente e información
+            #### Emisiones
             Hace referencia a las emisiones generadas como resultado de la generación energética, usando combustibles líquidos, sólidos o gaseosos.
         """)
         with st.expander("Mayor información y descarga de datos."):

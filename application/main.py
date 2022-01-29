@@ -28,12 +28,17 @@ def run():
         if active_tab == 'País':
             st.write("""
                      ## Perfil energético de Argentina
-                     Seleccione las opciones sobre la navegación para solicitar información sobre el perfil energético de Argentina.
-                    - Lugar de búsqueda
-                    - Años de búsqueda
-                    - ...
+                     La generación y el consumo de energía es una de las mayores fuentes de generación CO2 en el mundo.
+                     Solo se es consciente de la huella generada cuando se tiene la capacidad de medir el impacto.
+                     Energy profile es un proyecto en construcción, que representa un primer acercamiento
+                     al perfil energético de Argentina. Encontrarás inicialmente:
+                    - Consumo
+                    - Generación
+                    - Consumo per capita
+                    - Emisiones por generación de energía
+                    - Otros...
 
-                     ---
+                    Queremos contribuir en la generación de conocimiento sobre la energía y su impacto en el MA
                      """)
             if st.sidebar.button('Solicitar información'):
                 st.write("""
