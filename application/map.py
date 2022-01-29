@@ -1,16 +1,31 @@
 import pandas as pd
 import geopandas as gpd
 import folium
+import requests
+import os
 from streamlit_folium import folium_static
 
 def run():
+    env = os.getenv('FLASK_ENV')
+
+    if (env == 'dev'):
+        BASE_URL = "http://localhost:8000"
+    else:
+        BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+
     folium_map = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
 
-    region_json_df = gpd.read_file('datasets/provincia.json')
+    response = requests.get(f"{BASE_URL}/map")
+    data = response.json()
+    region_json_df = gpd.read_file(data)
+
     region_json_df = region_json_df[['nam', 'geometry']]
 
-    kpi_per_region_df = pd.read_excel(
-        'datasets/cant_centr_prov_pobl_consumo_modificado.xlsx')
+    response = requests.get(f"{BASE_URL}/kpi_per_region")
+    data = response.json()
+
+    kpi_per_region_df = pd.read_json(data)
+
     kpi_per_region_df.fillna(0.0)
 
     region_match_per_region_df = region_json_df.merge(kpi_per_region_df,
