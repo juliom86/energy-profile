@@ -11,15 +11,11 @@ def run():
     if (env == 'dev'):
         BASE_URL = "http://localhost:8000"
     else:
-        BASE_URL = "https://api-v4-s6r4cnmwdq-ew.a.run.app"
+        BASE_URL = "https://api-v6-s6r4cnmwdq-ew.a.run.app"
 
     folium_map = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
 
-    response = requests.get(f"{BASE_URL}/map")
-    data = response.json()
-    region_json_df = gpd.read_file(
-        'https://dnsg.ign.gob.ar/apps/api/v1/capas-sig/Geodesia+y+demarcaci%C3%B3n/L%C3%ADmites/provincia/json'
-    )
+    region_json_df = gpd.read_file("/application/provincia.json")
 
     region_json_df = region_json_df[['nam', 'geometry']]
 

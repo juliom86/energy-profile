@@ -11,13 +11,13 @@ from streamlit_folium import folium_static
 from application import routes, country, map
 # from application.functions import convert_df
 
-def run():
+def run(selected_option = 'Argentina'):
     env = os.getenv('FLASK_ENV')
 
     if (env == 'dev'):
-        BASE_URL = "http://localhost:8000"
+        BASE_URL = "http://localhost:8001"
     else:
-        BASE_URL = "https://api-v5-s6r4cnmwdq-ew.a.run.app"
+        BASE_URL = "https://api-v6-s6r4cnmwdq-ew.a.run.app"
 
     routes.tabs()
 
@@ -40,15 +40,19 @@ def run():
 
                     Queremos contribuir en la generación de conocimiento sobre la energía y su impacto en el MA
                      """)
-            if st.sidebar.button('Solicitar información'):
-                st.write("""
-                         ## Resultado de la búsqueda
-                    """)
-                # Country
-                country.run()
+            st.write("""
+                        ## Resultado de la búsqueda
+                        ---
+                """)
+            # Country
+            country.run(selected_option)
         if active_tab == 'Mapa':
             # Map
             map.run()
+        if active_tab == 'Region':
+            pass
+        if active_tab == 'API':
+            pass
     else:
         st.write(
             '''Un perfil energético completo de Argentina, sus provincias
