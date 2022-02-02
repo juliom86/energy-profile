@@ -15,9 +15,7 @@ def run():
 
     folium_map = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
 
-    region_json_df = gpd.read_file(
-        "/application/provincia.json"
-    )
+    region_json_df = gpd.read_file("/application/provincia.json")
 
     region_json_df = region_json_df[['nam', 'geometry']]
 
