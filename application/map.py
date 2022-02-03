@@ -13,7 +13,7 @@ def run():
     else:
         BASE_URL = "https://api-v6-s6r4cnmwdq-ew.a.run.app"
 
-    folium_map = folium.Map(location=[-34.61315, -58.37723], zoom_start=4)
+    folium_map = folium.Map(location=[-36.6166642, -64.2833322], zoom_start=5)
 
     region_json_df = gpd.read_file("datasets/provincia.json")
 
@@ -63,4 +63,4 @@ def run():
 
     folium_map.add_child(folium_geo_json)
 
-    folium_static(folium_map)
+    folium_static(folium_map, width=1738, height=1000)
