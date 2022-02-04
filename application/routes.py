@@ -1,7 +1,7 @@
 import streamlit as st
 from application import country, map
 
-TABS = ['País', 'Región', 'Mapa', 'API']
+TABS = ['País', 'Internacional', 'Mapa', 'API']
 
 
 def tabs():

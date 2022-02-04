@@ -8,7 +8,7 @@ import os
 import geopandas as gpd
 import folium
 from streamlit_folium import folium_static
-from application import routes, country, map
+from application import routes, country, map, international
 # from application.functions import convert_df
 
 def run(selected_option = 'Argentina'):
@@ -49,8 +49,9 @@ def run(selected_option = 'Argentina'):
         if active_tab == 'Mapa':
             # Map
             map.run()
-        if active_tab == 'Region':
-            pass
+        if active_tab == 'Internacional':
+            # International
+            international.run()
         if active_tab == 'API':
             pass
     else:
