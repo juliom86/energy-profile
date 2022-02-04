@@ -20,4 +20,6 @@ def run():
         ### Consulta de Datos:
         """)
 
-    st.sidebar.multiselect('Seleccione el lugar de búsqueda', ['Argentina'])
+    selected_region = st.sidebar.selectbox('Seleccione el lugar de búsqueda',
+                                           ('Argentina', 'Buenos Aires'))
+    return selected_region

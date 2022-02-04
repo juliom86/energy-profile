@@ -8,7 +8,7 @@ page_config.run()
 # FUNCTIONS
 
 # SIDEBAR SELECTION
-sidebar.run()
+selected_option = sidebar.run()
 
 # MAIN SECTION
-main.run()
+main.run(selected_option)
