@@ -22,9 +22,12 @@ def run():
     col1, col2 = st.columns([4, 2])
     col3, col4 = st.columns([4, 2])
 
-    # International Tab
-    import_export_df = pd.read_csv(
-        'datasets/Exportaciones e importaciones historicas.csv', sep=';')
+    # Balance API call
+    params = {"start_year": "2005", "end_year": "2019", "kpi": "all", "country": "all"}
+    response = requests.get(BASE_URL + "/balance", params=params)
+    data = response.json()
+
+    import_export_df = pd.read_json(data)
 
     ## Exportation
     fig_export = px.bar(import_export_df,
