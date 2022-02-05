@@ -41,7 +41,7 @@ def run(selected_region):
     # Emissions API call
 
     params = {"start_year": "1980", "end_year": "2015", "fuel": "all"}
-    response = requests.get(BASE_URL + "/emisions", params=params)
+    response = requests.get(BASE_URL + "/emissions", params=params)
     data = response.json()
 
     df_emissions = pd.read_json(data)
