@@ -1,7 +1,7 @@
 import streamlit as st
 from application import country, map
 
-TABS = ['País','Provincia','Región','Internacional', 'Mapa', 'API' ]
+TABS = ['País','Provincia','Región','Internacional', 'Mapa']
 
 
 def tabs():
@@ -23,7 +23,7 @@ def tabs():
         <li class="nav-item">
             <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}" target="_self">{t}</a>
         </li>
-        """ for t in TABS[0:4])
+        """ for t in TABS)
     tabs_html = f"""
         <ul class="nav nav-tabs">
         {li_items}
