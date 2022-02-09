@@ -56,7 +56,7 @@ def run(selected_region):
         df_gen_vs_con,
         x='Fecha',
         y='Generación GWh',
-        title='Generación Energética Historica Argentina',
+        title='Generación Energética Histórica Argentina',
         width=1100,
         height=600)
     generation_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
@@ -67,7 +67,7 @@ def run(selected_region):
         df_gen_vs_con,
         x='Fecha',
         y='Consumo GWh',
-        title='Consumo Energético Historico Argentina',
+        title='Consumo Energético Histórico Argentina',
         width=1100,
         height=600)
     consumption_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
@@ -136,7 +136,7 @@ def run(selected_region):
         df_gen_vs_con,
         x='Fecha',
         y='Consumo per capita kWh',
-        title='Consumo Percapita Historico Argentina',
+        title='Consumo Percapita Histórico Argentina',
         width=1100,
         height=600)
     consumption_per_capita_fig.update_layout(
@@ -186,8 +186,7 @@ def run(selected_region):
     emissions_fig.update_layout(
         xaxis_title='Año',
         yaxis_title='Emisiones por consumo de combustible',
-        width=1100,
-        height=600,
+        s
         title='Emisiones por consumo de combustible',
         legend=dict(
             yanchor="top",
