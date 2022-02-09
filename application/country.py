@@ -186,7 +186,6 @@ def run(selected_region):
     emissions_fig.update_layout(
         xaxis_title='Año',
         yaxis_title='Emisiones por consumo de combustible',
-        s
         title='Emisiones por consumo de combustible',
         legend=dict(
             yanchor="top",

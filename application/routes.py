@@ -23,7 +23,7 @@ def tabs():
         <li class="nav-item">
             <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}" target="_self">{t}</a>
         </li>
-        """ for t in TABS)
+        """ for t in TABS[0:4])
     tabs_html = f"""
         <ul class="nav nav-tabs">
         {li_items}
