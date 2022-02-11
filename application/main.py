@@ -94,6 +94,12 @@ def run(selected_option = 'Argentina'):
         if active_tab == 'API':
             pass
     else:
+
+        st.image(
+        "https://s1.1zoom.me/big0/568/Argentina_Houses_Roads_478950.jpg",
+        width=1600
+        )
+
         st.write(
         '''
         ## Perfil energético de Argentina

@@ -56,7 +56,7 @@ def run():
             #### Exportaciones
             Si existen excedentes de energía eléctrica generada se exportan a países vecinos. .
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
         export_csv = convert_df(import_export_df[['Año', 'pais', 'Exportación']])
         st.download_button(label="Descargar dataset en CSV",
                            data=export_csv,
@@ -83,7 +83,7 @@ def run():
             #### Importaciones
             Se importa energía eléctrica de otros países cuando los de los centros de producción de energía están muy alejados.
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
         exportacion_csv = convert_df(
             import_export_df[['Año', 'pais', 'Importación']])
         st.download_button(label="Descargar dataset en CSV",

@@ -81,7 +81,7 @@ def run(selected_region):
             #### Generación
             La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [DATOS ARGENTINA](https://www.datos.gob.ar/)")
         generation_csv = convert_df(df_gen_vs_con[['Fecha', 'Generación GWh']])
         st.download_button(
             label="Descargar dataset en CSV",
@@ -110,7 +110,7 @@ def run(selected_region):
             #### Consumo
             El consumo energético es el gasto total de la energía, y normalmente incluye más de una fuente energética.
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [DATOS ARGENTINA](https://www.datos.gob.ar/)")
         consumption_csv = convert_df(df_gen_vs_con[['Fecha', 'Consumo GWh']])
         st.download_button(
             label="Descargar dataset en CSV",
@@ -151,7 +151,7 @@ def run(selected_region):
             #### Consumo per cápita
             Consumo de enegía primaria por habitante.
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [DATOS ARGENTINA](https://www.datos.gob.ar/)")
         consumption_per_capita_csv = convert_df(
             df_gen_vs_con[['Fecha', 'Consumo per capita kWh']])
         st.download_button(
@@ -207,7 +207,7 @@ def run(selected_region):
             #### Emisiones
             Hace referencia a las emisiones generadas como resultado de la generación energética, usando combustibles líquidos, sólidos o gaseosos.
         """)
-        st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+        st.write("**Fuente:** [WORLD BANK](https://databank.worldbank.org/home.aspx)")
         df_emissions_csv = convert_df(df_emissions)
         st.download_button(
             label="Descargar dataset en CSV",
