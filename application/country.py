@@ -196,7 +196,9 @@ def run(selected_region):
     )
     emissions_fig.update_layout(xaxis=dict(rangeselector=dict(buttons=list([
         dict(count=1, label="1y", step="year", stepmode="backward"),
-        dict(step="all")])),rangeslider=dict(visible=True)))
+        dict(step="all")])),rangeslider=dict(visible=True)),
+        width=1100,
+        height=600)
 
     col7.plotly_chart(emissions_fig)
 
