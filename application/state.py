@@ -93,12 +93,14 @@ def run(selected_region):
         fig3 = px.bar(tipos_df,
                     x="Mwh Facturado",
                     y="zonas",
+                    title='Usos de la energía por provincia',
                     orientation='h',
                     width=1100,
                     height=600)
         fig4 = px.bar(tipos_pot_df,
                     x="plantas",
                     y="energia",
+                    title='Tipos de plantas energéticas',
                     width=1100,
                     height=600)
 
@@ -108,10 +110,10 @@ def run(selected_region):
 
         with col2:
             st.write("""
-                #### Generación
-                La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
+                #### Total Energía Facturada MWh
+                Corresponde a la energía eléctrica facturada históricamente por cada provincia del país.
             """)
-            st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+            st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
             facturacion_csv = convert_df(state_df[['Año', 'Total']])
             st.download_button(
                 label="Descargar dataset en CSV",
@@ -138,10 +140,10 @@ def run(selected_region):
 
         with col4:
             st.write("""
-                #### Generación
-                La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
+                #### Potencia instala
+                Corresponde a la energía producida por cada provincia históricamente.
             """)
-            st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+            st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
             potencia_csv = convert_df(state_pot_df[['Año', 'Potencia Total']])
             st.download_button(
                 label="Descargar dataset en CSV",
@@ -167,10 +169,10 @@ def run(selected_region):
 
         with col6:
             st.write("""
-                #### Generación
-                La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
+                #### Usos de la energía
+                Corresponde a los usos de la energía por cada provincia.
             """)
-            st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+            st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
             zonas_csv = convert_df(tipos_df[['zonas', 'Mwh Facturado']])
             st.download_button(label="Descargar dataset en CSV",
                             data=zonas_csv,
@@ -191,10 +193,10 @@ def run(selected_region):
 
         with col8:
             st.write("""
-                #### Generación
-                La generación de energía eléctrica engloba al conjunto de procesos distintos a través de los cuales puede producirse electricidad, o lo que es lo mismo, transformar otras formas de energía disponibles en la naturaleza (energía química, cinética, térmica, lumínica, nuclear, etc.) en energía eléctrica aprovechable.
+                #### Centrales de energía
+                Correponde alos tipos de plantas energéticas por cada provincia.
             """)
-            st.write("**Fuente:** [XXXXXXXXX](https://www.lewagon.com)")
+            st.write("**Fuente:** [CAMMESA](https://portalweb.cammesa.com/default.aspx)")
             tipos_csv = convert_df(tipos_pot_df[["plantas", "energia"]])
             st.download_button(label="Descargar dataset en CSV",
                             data=tipos_csv,
